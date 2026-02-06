@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffebf0; /* Soft pink background */
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            overflow: hidden;
+        }
+
+        #container {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 5px solid #ff4d6d;
+        }
+
+        h1 { color: #ff4d6d; font-size: 2.5rem; }
+
+        .btn-container {
+            margin-top: 30px;
+            height: 100px;
+            position: relative;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+            box-shadow: 0 5px #c9184a;
+        }
+
+        #yesBtn:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px #c9184a;
+        }
+
+        #noBtn {
+            background-color: #595959;
+            color: white;
+            position: absolute;
+        }
+
+        #celebration { display: none; }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div id="quiz">
+            <h1>Sungjinwoo, Will you be my valentine? ❤️</h1>
+            <div class="btn-container">
+                <button id="yesBtn" onclick="showJoy()">YES!</button>
+                <button id="noBtn" onmouseover="moveButton()">NO</button>
+            </div>
+        </div>
+
+        <div id="celebration">
+            <h1>I knew it! 😘</h1>
+            <img id="val-gif" src="" alt="joy.gif">
+        </div>
+    </div>
+
+    <script>
+        // 1. PASTE YOUR PINTEREST LINK BETWEEN THE QUOTES BELOW
+        const myGifUrl = "joy.gif"; 
+
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            // Calculate random positions within the container
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function showJoy() {
+            document.getElementById('quiz').style.display = 'none';
+            document.getElementById('celebration').style.display = 'block';
+            document.getElementById('val-gif').src = myGifUrl;
+        }
+    </script>
+</body>
+</html>
